@@ -1,0 +1,9 @@
+.dashboard h1 {
+    color: #20252b;
+    margin-bottom: 10px;
+}
+
+.dashboard p {
+    color: #666666;
+    font-size: 18px;
+}

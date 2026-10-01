@@ -1,0 +1,337 @@
+h1:focus {
+    outline: none;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid #e50000;
+}
+
+.validation-message {
+    color: #e50000;
+}
+
+.blazor-error-boundary {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
+    padding: 1rem 1rem 1rem 3.7rem;
+    color: white;
+}
+
+    .blazor-error-boundary::after {
+        content: "An error has occurred.";
+    }
+
+.darker-border-checkbox.form-check-input {
+    border-color: #929292;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+    text-align: start;
+}
+
+/* HEADER E SIDEBAR MOVIDOS AQUI */
+.top-header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dddddd;
+}
+
+    .top-header h5 {
+        margin: 0;
+        color: #333333;
+        font-size: 18px;
+    }
+
+.menu-button {
+    border: none;
+    background: transparent;
+    color: #f28c28;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+    .menu-button:hover {
+        color: #d96f0b;
+    }
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555555;
+}
+
+    .user-area i {
+        font-size: 25px;
+    }
+
+@media (max-width: 768px) {
+    .top-header h5,
+    .user-area span {
+        display: none;
+    }
+}
+
+/* Mostrar o ícone de menu (três traços) somente em dispositivos móveis */
+.header-menu-btn {
+    display: none; /* padrão: oculto */
+}
+
+@media (max-width: 768px) {
+    .header-menu-btn {
+        display: inline-block; /* aparece somente em mobile */
+    }
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background-color: #20252b;
+    color: white;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+}
+
+.sidebar-brand {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 22px;
+    background-color: #f28c28;
+    font-size: 22px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+    .sidebar-brand i {
+        min-width: 28px;
+        font-size: 28px;
+    }
+
+.sidebar-menu {
+    padding: 20px 12px;
+}
+
+    .sidebar-menu a {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 13px 15px;
+        margin-bottom: 8px;
+        color: #d8d8d8;
+        text-decoration: none;
+        border-radius: 8px;
+    }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            color: white;
+            background-color: #f28c28;
+        }
+
+    .sidebar-menu i {
+        width: 22px;
+        min-width: 22px;
+        text-align: center;
+        font-size: 19px;
+    }
+
+/* Estado contraído aplicado via classe .sidebar-contraida no container */
+.app-layout.sidebar-contraida .sidebar {
+    width: 75px;
+}
+
+.app-layout.sidebar-contraida .sidebar-brand {
+    justify-content: center;
+    padding: 0;
+}
+
+    .app-layout.sidebar-contraida .sidebar-brand span,
+    .app-layout.sidebar-contraida .sidebar-menu span {
+        display: none;
+    }
+
+.app-layout.sidebar-contraida .sidebar-menu a {
+    justify-content: center;
+    padding: 14px 8px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 75px;
+    }
+
+    .sidebar-brand {
+        justify-content: center;
+        padding: 0;
+    }
+
+        .sidebar-brand span,
+        .sidebar-menu span {
+            display: none;
+        }
+
+    .sidebar-menu a {
+        justify-content: center;
+        padding: 14px 8px;
+    }
+}
+
+/* Novos estilos para comportamento responsivo e interação */
+.btn-hamburger,
+.btn-collapse {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-hamburger {
+    display: none; /* legado, não usado */
+}
+
+.btn-collapse {
+    margin-left: auto;
+}
+
+.sidebar.collapsed {
+    width: 75px;
+}
+
+.sidebar.collapsed .sidebar-brand {
+    justify-content: center;
+    padding: 0;
+}
+
+.sidebar.collapsed .sidebar-brand span,
+.sidebar.collapsed .sidebar-menu span {
+    display: none;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    z-index: 998;
+}
+
+.sidebar-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Toggle fixo ao lado da sidebar */
+.sidebar {
+    --sidebar-width: 250px;
+}
+
+.sidebar.collapsed {
+    --sidebar-width: 75px;
+}
+
+.sidebar-center-toggle {
+    position: absolute;
+    right: 8px; /* fica na borda direita interna da sidebar */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1002;
+    background: #f28c28;
+    color: #111;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+    border: 3px solid rgba(0,0,0,0.08);
+    transition: transform 0.18s ease, right 0.18s ease;
+}
+
+/* no mobile não mostramos o botão centralizado */
+@media (max-width: 768px) {
+    .sidebar-center-toggle {
+        display: none;
+    }
+}
+
+/* girar ícone quando a sidebar está contraída */
+.sidebar.collapsed .sidebar-center-toggle i {
+    transform: rotate(180deg);
+}
+
+.sidebar-center-toggle i {
+    transition: transform 0.18s ease;
+}
+
+@media (max-width: 768px) {
+    .btn-hamburger {
+        display: inline-block;
+    }
+
+    .btn-collapse {
+        display: inline-block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        transform: translateX(-110%);
+        transition: transform 0.25s ease;
+        z-index: 999;
+        width: 260px; /* largura do menu mobile */
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    /* esconder toggle fixo em mobile; o botão de fechar fica dentro do header da sidebar */
+    .sidebar-toggle {
+        display: none;
+    }
+}
+
+/* Em mobile, quando a sidebar estiver aberta mostramos os textos (nomes dos itens) */
+@media (max-width: 768px) {
+    /* por padrão no mobile ocultamos os spans (ícones apenas) -- reativar quando .open */
+    .sidebar .sidebar-brand span,
+    .sidebar .sidebar-menu span {
+        display: none;
+    }
+
+    .sidebar.open .sidebar-brand span,
+    .sidebar.open .sidebar-menu span {
+        display: inline-block;
+    }
+
+    /* garantir largura quando aberta no mobile */
+    .sidebar.open {
+        width: 260px;
+    }
+}
