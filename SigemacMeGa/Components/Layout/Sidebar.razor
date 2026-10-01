@@ -1,25 +1,58 @@
-﻿<div class="sidebar" id="siteSidebar">
+﻿@* 
+    SIDEBAR COMPONENT (Sidebar.razor)
+    ===================================
+    Componente responsável por renderizar a barra lateral (sidebar) da aplicação.
+    Contém o menu principal, marca da empresa.
+
+    ESTRUTURA:
+    - Contêiner principal (#siteSidebar) com id para seleção via JS
+    - Área de marca (logo + nome SIGEMAC)
+    - Menu de navegação com links
+    - Overlay escuro (aparece ao abrir em mobile)
+*@
+
+<div class="sidebar" id="siteSidebar">
+    @* 
+        ÁREA DE MARCA
+        Exibe o ícone e nome da aplicação SIGEMAC
+        Ocupa a parte superior da sidebar
+    *@
     <div class="sidebar-brand">
+        @* Ícone de martelo usando Bootstrap Icons *@
         <i class="bi bi-hammer"></i>
+        @* Nome da aplicação *@
         <span>SIGEMAC</span>
     </div>
 
+    @* 
+        MENU DE NAVEGAÇÃO
+        Lista de links (NavLink) com ícone e texto
+        NavLink é um componente Blazor que aplica .active automaticamente à página atual
+    *@
     <nav class="sidebar-menu">
+        @* Link para Dashboard - página inicial *@
         <NavLink href="/" Match="NavLinkMatch.All">
+            @* Ícone velocímetro para Dashboard *@
             <i class="bi bi-speedometer2"></i>
+            @* Texto do link (escondido quando contraído) *@
             <span>Dashboard</span>
         </NavLink>
 
+        @* Link para Estoque *@
         <NavLink href="/estoque">
+            @* Ícone de caixa para Estoque *@
             <i class="bi bi-box-seam"></i>
+            @* Texto do link (escondido quando contraído) *@
             <span>Estoque</span>
         </NavLink>
     </nav>
-
-    <!-- botão central para contrair/expandir (desktop) -->
-    <button class="sidebar-center-toggle" aria-label="Alternar sidebar">
-        <i class="bi bi-chevron-left"></i>
-    </button>
 </div>
 
+@* 
+    OVERLAY (Sobreposição)
+    Elemento escuro que aparece atrás da sidebar em mobile
+    - Aparece quando sidebar é aberta em telas pequenas
+    - Clique no overlay fecha a sidebar
+    - CSS o esconde por padrão (@media max-width: 768px)
+*@
 <div class="sidebar-overlay" id="sidebarOverlay"></div>

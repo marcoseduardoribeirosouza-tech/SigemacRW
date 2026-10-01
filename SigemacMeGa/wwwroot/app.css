@@ -84,46 +84,160 @@ h1:focus {
     }
 }
 
-/* Mostrar o ícone de menu (três traços) somente em dispositivos móveis */
+/* 
+ * BOTÃO DE MENU DO HEADER (Hamburger)
+ * Exibe os 3 traços horizontais e controla a sidebar em AMBAS as situações:
+ * 
+ * DESKTOP: clique = contrai/expande a sidebar (reduz de 250px para 75px)
+ * MOBILE: clique = abre/fecha a sidebar como overlay
+ * 
+ * - Sempre visível (display: inline-block em ambas as situações)
+ * - Background transparente (sem fundo)
+ * - Border: none (sem borda)
+ * - Cursor: pointer (muda para "finger" ao passar)
+ * - Ícone: bi-list (3 traços) ou bi-x-lg (X quando sidebar aberta em mobile)
+ */
+
 .header-menu-btn {
-    display: none; /* padrão: oculto */
+    /* Sempre visível em ambas as situações */
+    display: inline-block;
+
+    /* Background transparente - sem cor de fundo */
+    background: transparent;
+
+    /* Sem borda: mantém visual limpo */
+    border: none;
+
+    /* Cursor "pointer" indica que é clicável */
+    cursor: pointer;
+
+    /* Transição suave em cores e propriedades */
+    transition: all 0.3s ease;
+
+    /* Padding para melhor área de clique */
+    padding: 8px 12px;
+
+    /* Alinhamento vertical no header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@media (max-width: 768px) {
-    .header-menu-btn {
-        display: inline-block; /* aparece somente em mobile */
-    }
+/* Efeto visual ao passar o mouse sobre o botão */
+.header-menu-btn:hover {
+    /* Cor de fundo sutil ao passar o mouse */
+    background: rgba(242, 140, 40, 0.1); /* Laranja bem claro (#f28c28 com 10% opacidade) */
+
+    /* Leve aumento de tamanho (escala) */
+    transform: scale(1.05);
 }
 
-/* SIDEBAR */
+/* Ícone dos 3 traços dentro do botão */
+.header-menu-btn i {
+    /* Tamanho da fonte do ícone */
+    font-size: 24px;
+
+    /* Cor laranja (#f28c28) - cor padrão SIGEMAC */
+    color: #f28c28;
+
+    /* Transição suave ao trocar ícones (3 traços <-> X) */
+    transition: transform 0.3s ease;
+}
+
+/* ==================== ESTILOS DA SIDEBAR ==================== */
+
+/*
+ * CONTAINER PRINCIPAL DA SIDEBAR
+ * Painel lateral com menu de navegação
+ * 
+ * PROPRIEDADES CHAVE:
+ * - position: relative: necessário para posicionar botão de toggle absoluto
+ * - width: 250px: largura normal (desktop)
+ * - min-height: 100vh: preenche a altura total da viewport
+ * - transition: width 0.3s ease: anima redimensionamento ao contraí/expandir
+ * 
+ * ESTADO CONTRAÍDO (.sidebar.collapsed):
+ * - Width reduz de 250px para 75px via CSS
+ * - Textos do menu ficam escondidos
+ * - Apenas ícones permanecem visíveis
+ * 
+ * ESTADO ABERTO (Mobile .sidebar.open):
+ * - Transform move a sidebar de -100% (fora da tela) para 0%
+ * - Aparece sobre o conteúdo principal com overlay
+ */
 .sidebar {
+    /* Necessário para posicionar o botão de toggle com position: absolute */
+    position: relative;
+
+    /* Largura padrão: 250px (expansão normal) */
     width: 250px;
+
+    /* Preenche a altura inteira da tela */
     min-height: 100vh;
+
+    /* Background escuro (quase preto) */
     background-color: #20252b;
+
+    /* Texto em branco para contraste */
     color: white;
+
+    /* Esconde conteúdo que transbordaria (textos longos) */
     overflow: hidden;
+
+    /* Não se redimensiona quando o conteúdo muda (flex: 0 0) */
     flex-shrink: 0;
+
+    /* Animação suave de redimensionamento (0.3s) */
     transition: width 0.3s ease;
 }
 
+/*
+ * MARCA DA EMPRESA (Logo + Nome SIGEMAC)
+ * Título visual no topo da sidebar
+ * Usa a cor laranja (#f28c28) como destaque
+ */
 .sidebar-brand {
+    /* Altura fixa: 70px */
     height: 70px;
+
+    /* Flexbox: centraliza ícone e texto horizontalmente */
     display: flex;
     align-items: center;
+
+    /* Espaço entre ícone e texto */
     gap: 12px;
+
+    /* Padding horizontal: mantém conteúdo afastado das bordas */
     padding: 0 22px;
+
+    /* Background laranja (#f28c28) - cor marca SIGEMAC */
     background-color: #f28c28;
+
+    /* Tamanho da fonte do texto */
     font-size: 22px;
+
+    /* Texto em negrito */
     font-weight: bold;
+
+    /* Texto não quebra em múltiplas linhas */
     white-space: nowrap;
 }
 
+    /* Ícone de martelo dentro da marca */
     .sidebar-brand i {
+        /* Largura mínima: 28px (evita encolher) */
         min-width: 28px;
+
+        /* Tamanho da fonte: 28px (grande e visível) */
         font-size: 28px;
     }
 
+/*
+ * MENU DE NAVEGAÇÃO
+ * Container para os links (NavLinks) da sidebar
+ */
 .sidebar-menu {
+    /* Padding: espaçamento interno do menu */
     padding: 20px 12px;
 }
 
@@ -152,40 +266,79 @@ h1:focus {
     }
 
 /* Estado contraído aplicado via classe .sidebar-contraida no container */
+
+/*
+ * LAYOUT QUANDO SIDEBAR ESTÁ CONTRAÍDA (DESKTOP)
+ * Classe .sidebar-contraida é adicionada ao .app-layout quando o usuário clica
+ * no botão laranja para reduzir a sidebar
+ */
+
+/* Reduz a largura da sidebar de 250px para 75px quando contraída */
 .app-layout.sidebar-contraida .sidebar {
     width: 75px;
 }
 
+/* Centraliza o ícone da marca quando contraída */
 .app-layout.sidebar-contraida .sidebar-brand {
     justify-content: center;
     padding: 0;
 }
 
+    /* Esconde o texto "SIGEMAC" quando contraída - apenas ícone fica visível */
     .app-layout.sidebar-contraida .sidebar-brand span,
     .app-layout.sidebar-contraida .sidebar-menu span {
         display: none;
     }
 
+/* Centraliza os ícones dos links quando contraída */
 .app-layout.sidebar-contraida .sidebar-menu a {
     justify-content: center;
     padding: 14px 8px;
 }
 
+/*
+ * LAYOUT MOBILE (Telas com max-width: 768px)
+ * Em dispositivos móveis a sidebar sempre se comporta como se estivesse contraída
+ * Apenas ícones são visíveis por padrão (textos escondidos)
+ * A sidebar abre como um overlay quando o usuário clica no hamburger
+ */
 @media (max-width: 768px) {
+    /* Sidebar sempre com 75px em mobile */
     .sidebar {
         width: 75px;
+
+        /* Transform faz a sidebar sair da tela à esquerda (translateX -100%) */
+        /* Estado inicial = fechada, fora da tela */
+        transform: translateX(-100%);
+
+        /* Transição suave entre estados (aberta/fechada) */
+        transition: transform 0.3s ease, width 0.3s ease;
+
+        /* z-index alto: aparece sobre todo conteúdo quando aberta */
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1000;
     }
 
+    /* Quando a sidebar está aberta (.open), ela desliza para dentro da tela */
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    /* Centraliza marca em mobile */
     .sidebar-brand {
         justify-content: center;
         padding: 0;
     }
 
+        /* Esconde textos em mobile (apenas ícones visíveis) */
         .sidebar-brand span,
         .sidebar-menu span {
             display: none;
         }
 
+    /* Centraliza ícones do menu em mobile */
     .sidebar-menu a {
         justify-content: center;
         padding: 14px 8px;
@@ -219,70 +372,61 @@ h1:focus {
     padding: 0;
 }
 
-.sidebar.collapsed .sidebar-brand span,
-.sidebar.collapsed .sidebar-menu span {
-    display: none;
-}
+    /* Esconde textos quando a sidebar está contraída */
+    .sidebar.collapsed .sidebar-brand span,
+    .sidebar.collapsed .sidebar-menu span {
+        display: none;
+    }
+
+/*
+ * OVERLAY (Sobreposição escura)
+ * Aparece atrás da sidebar quando ela é aberta em modo mobile
+ * Cria um fundo escuro semi-transparente
+ * Clique no overlay fecha a sidebar via JS
+ */
 
 .sidebar-overlay {
+    /* Position fixed: cobre toda a janela do navegador */
     position: fixed;
+
+    /* inset: 0 é atalho para top:0, right:0, bottom:0, left:0 */
     inset: 0;
+
+    /* Background escuro semi-transparente (preto com 45% de opacidade) */
     background: rgba(0,0,0,0.45);
+
+    /* Padrão: invisível (opacity: 0) */
     opacity: 0;
+
+    /* Padrão: não aceita cliques (visibility: hidden) */
     visibility: hidden;
+
+    /* Transição suave ao aparecer/desaparecer (0.2s) */
     transition: opacity 0.2s ease;
+
+    /* z-index: 998 (fica atrás da sidebar que tem z-index: 1000) */
     z-index: 998;
 }
 
+/* Quando overlay tem classe .visible (sidebar aberta), torna visível */
 .sidebar-overlay.visible {
+    /* Torna transparente (visível) */
     opacity: 1;
+
+    /* Aceita cliques (é um botão para fechar) */
     visibility: visible;
 }
 
-/* Toggle fixo ao lado da sidebar */
+/* 
+ * VARIÁVEIS CSS PARA SIDEBAR
+ * Armazena largura atual para usar em cálculos
+ */
 .sidebar {
     --sidebar-width: 250px;
 }
 
 .sidebar.collapsed {
     --sidebar-width: 75px;
-}
-
-.sidebar-center-toggle {
-    position: absolute;
-    right: 8px; /* fica na borda direita interna da sidebar */
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1002;
-    background: #f28c28;
-    color: #111;
-    border: none;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
-    border: 3px solid rgba(0,0,0,0.08);
-    transition: transform 0.18s ease, right 0.18s ease;
-}
-
-/* no mobile não mostramos o botão centralizado */
-@media (max-width: 768px) {
-    .sidebar-center-toggle {
-        display: none;
-    }
-}
-
-/* girar ícone quando a sidebar está contraída */
-.sidebar.collapsed .sidebar-center-toggle i {
-    transform: rotate(180deg);
-}
-
-.sidebar-center-toggle i {
-    transition: transform 0.18s ease;
 }
 
 @media (max-width: 768px) {
